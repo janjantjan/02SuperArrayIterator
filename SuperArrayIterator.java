@@ -18,7 +18,7 @@ public class SuperArrayIterator implements Iterator<String>{
     public Integer next(int index){
 	if(hasNext(index)){
 	    index++;
-	    return get(index);
+	    return ary.get(index);
 	}else{
 	    throw new NoSuchElementException();
     }
