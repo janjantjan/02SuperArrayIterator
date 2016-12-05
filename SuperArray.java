@@ -10,10 +10,7 @@ public class SuperArray implements Iterable<String> {
 	    
     }
 
-           /** public SuperArray(int initialCapacity)
-           *Constructs an empty list with the specified initial capacity.
-           *Parameters: initialCapacity - the initial capacity of the list
-           *Throws: IllegalArgumentException - if the specified initial capacity is negative*/
+  
     
     public SuperArray(int initialCapacity){
 	if (initialCapacity < 0) {
@@ -159,8 +156,6 @@ public class SuperArray implements Iterable<String> {
 
     public Iterator<String> iterator(){
 	return new SuperArrayIterator(this);
-  }
-
-    
+  } 
     
 }
