@@ -26,7 +26,7 @@ public class SuperArray implements Iterable<String> {
 
     public void add(String n){
       data[size] = n;
-      size = size +1;      
+      size = size++;      
   }
 
 
