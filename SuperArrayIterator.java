@@ -1,42 +1,44 @@
 import java.util.Iterator;
 
-public interface SuperArrayIterator{
-    private int[] data;
-    private int size;
 
-    public SuperArrayIterator(){
-	data = new int[10];
-	size = 0;
-	    
+
+public class SuperArrayIterator implement Iterator<String>{
+
+    SuperArray ary  = new SuperArray();
+    
+    public SuperArrayIterator(SuperArray X) {
+        this.ary = name;
     }
-           
-    public SuperArrayIterator(int initialCapacity){
-	if (initialCapacity < 0) {
-	    throw new IllegalArgumentException();}
-	data = new int [initialCapacity];
-	size = 0;
-    }
+    
+       the rest of the code is very very similar to his just with like sa.get() or sa.size() instead of start/end/whatever  
+   
 
     public Iterator<Integer> iterator() {
 	return new SuperArrayIterator(initialCapacity);}
 
-    public boolean hasNext ();
+    public boolean hasNext (int index){
+	return index < ary.size();
+    }
 
-    public Integer next();
+    public Integer next(int index){
+	if(hasNext(index)){
+	    index++;
+	    return get(index);
+	}else{
+	    throw new NoSuchElementException();
+    }
+    };
 
-    public void remove();
+    public void remove(){
+	throw new UnsupportedOperationException();
+    }
+
 
 }
 
+ 
     
    
-
-
-// To start, write this as a separate class, we can discuss inner classes after you get it to work.
-
-// 2. Now work on your SuperArray!
-// -Make your SuperArray implement Iterable<String>
-// -Add the iterator() method.  //SORRY! fixed the typo
-
+//Thanks to JT Tao to helping me thru this!!!
     
-}
+

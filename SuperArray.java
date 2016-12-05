@@ -1,12 +1,8 @@
+import java.util.Iterator;
+
 public class SuperArray implement Iterable<String> {
   private String[] data;
   private int size;
-
-//CONSTRUCTORS_________________________________________________________________
-
-
-            //constructor make an empty superArray should make size 0, 
-            //but the data capacity 10.
 
     public SuperArray(){
 	data = new String[10];
@@ -27,26 +23,16 @@ public class SuperArray implement Iterable<String> {
     }
 
 
-
-//METHODS__________________________________________________________________________
-
   public int size(){
     return size;
   }
-
-//1
-/**add the value n to the next available slot in the superArray.
- *this will change the size. This function should always work
- *And will resize the SuperArray if needed.*/
 
     public void add(String n){
       data[size] = n;
       size = size +1;      
   }
 
-  //2
-/**Resize the data, by making a new array, then copying over elements, use this as your data.
-*/
+/
 
   public void grow(){
       String[] nata = new String[data.length + 1];
@@ -55,11 +41,6 @@ public class SuperArray implement Iterable<String> {
       }
       data = nata;
   }
-
-  //3
-   /**format the super array like this :   [ 1, 3, 6, 8, 23, 99, -4, 5] 
-    *commas between... square bracket start/end and no comma at end.*/
-
 
     public String toString(){
       String x = "[ ";
@@ -73,14 +54,7 @@ public class SuperArray implement Iterable<String> {
   }
 		
 
-				
-	   
 
-  //4
-    /**format the super array like this :   [ 1, 8, 23, 99, -4, 5, _, _, _, _]   
-    *(capacity is 10, but only 6 are used)
-    *commas between... square bracket start/end and no comma at end.
-    *unused slots should be printed as _ (underscores) */
 
     public String toStringDebug(){
       String x = "[ ";
@@ -102,9 +76,7 @@ public class SuperArray implement Iterable<String> {
       return x;
     }
 
-    //5. int get(int index)Returns the element at the specified position in this list.
-    //Throws:IndexOutOfBoundsException - if the index is out of range (index < 0 || index >= size())
-
+   
     public String get(int index) {
 	if (index < 0 || index >= size()){
 	    throw new IndexOutOfBoundsException(""+index);}
@@ -112,23 +84,18 @@ public class SuperArray implement Iterable<String> {
 	return data[index];
     }
 
-    // 6. void clear() Removes all of the elements from this list.
-
     public void clear() {
 	String[] nata = new String[data.length];
 	size = 0;
 	data = nata;
     }
 
-    //7. boolean isEmpty() Returns true if this list contains no elements.
 
     public boolean isEmpty() {
 	return size == 0;
     }
 
-    
-    //8. int set(int index, int element) Replaces the element at the specified position in this list with the specified element. Returns the value of the element replaced.
-
+  
     public String set(int index, String element){
 	if (index < 0 || index >= size()){
 	    throw new IndexOutOfBoundsException();}
@@ -136,10 +103,6 @@ public class SuperArray implement Iterable<String> {
 	data[index] = element;
 	return y;
     }
-
-    /**9. void add(int index, int element)
-     *Inserts the specified element at the specified position in this list.
-     *Shifts the element currently at that position (if any) and any subsequent elements to the right (adds one to their indices).*/
 
     public void add(int index, String element){
 	if (index  < 0 || index > size()){
@@ -151,12 +114,7 @@ public class SuperArray implement Iterable<String> {
 	size = size +1;
 	
     }
-    
-    /**10. int remove(int index)
-     *Removes the element at the specified position in this list. 
-     *Shifts any subsequent elements to the left (subtracts one from their indices). 
-     *The value returned is the value of the element removed.*/
-    
+ 
     public String remove (int index) {
 	if  (index < 0 || index >= size()){
 	    throw new IndexOutOfBoundsException();}
@@ -172,8 +130,6 @@ public class SuperArray implement Iterable<String> {
 	
     
 
-    /**11. int[] toArray()
-     *Returns an array containing all of the elements in this list in proper sequence (from first to last element).*/
     
     public String[] toArray(){
 	String[] nata = new String[data.length];
@@ -182,9 +138,6 @@ public class SuperArray implement Iterable<String> {
       }
 	return nata;
     }
-	
-    /**12. int indexOf(int i)
-     *Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.*/
 
     public int indexOf(String i){
 	int x = 0;
@@ -194,9 +147,7 @@ public class SuperArray implement Iterable<String> {
       }
     
 
-    /**13. int lastIndexOf(int i)
-     *Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.*/
-
+  
 
     public int lastIndexOf(String i) {
 	int y = data.length-1;
@@ -206,5 +157,10 @@ public class SuperArray implement Iterable<String> {
     }
 
 
-      
+    public Iterator<Integer> iterator(){
+	return new SuperArrayIterator(this);
+  }
+
+    
+    
 }
